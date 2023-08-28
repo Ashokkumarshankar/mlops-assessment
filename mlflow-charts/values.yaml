@@ -1,0 +1,12 @@
+# values.yaml
+image:
+  repository: mlflow-server
+  tag: latest
+
+mlflow:
+  fullname: mlflow-service
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 5001

@@ -1,0 +1,27 @@
+name: Deploy MLflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Minikube
+        run: |
+          # Set up Minikube here
+          minikube start --driver=docker
+
+      - name: Deploy MLflow
+        run: |
+          # Apply Kubernetes configurations
+          kubectl apply -f mlflow-deployment.yaml
+          kubectl apply -f mlflow-service.yaml
+
+      
