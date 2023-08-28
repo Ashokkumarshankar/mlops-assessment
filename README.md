@@ -9,24 +9,21 @@ This repository contains instructions and resources to deploy an MLflow UI using
 3. [kubectl](https://docs.docker.com/get-docker/)
 
 ## Steps to Run
-
-```
-prefect orion start
-```
+ 
 1. **Start minikube**
-```
+    ```
     minikube start
-```
+    ```
 2. **Install helm**
    ```
     apt-get install helm
-```
+    ```
 3. **Deploy mlflow ui**
-```
+    ```
     helm install -n mlflow mlflow-server ./mlflow-charts
-```
+    ```
 4. **Install pip & kubectl**
-   ```
+    ```
     1. yum instal pip
     ```
 
@@ -36,7 +33,7 @@ This command should run mlflow UI up and running at port 5001.
 1. **Build  docker image**
     ```
     Docker build -t my-model .
-```
+    ```
 2. **Run docker container**
    ```
     docker run -p 8001:8001 my-model
