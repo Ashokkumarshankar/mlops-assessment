@@ -21,7 +21,7 @@ jobs:
       - name: Deploy MLflow
         run: |
           # Apply Kubernetes configurations
-          kubectl apply -f mlflow-deployment.yaml
-          kubectl apply -f mlflow-service.yaml
+          kubectl apply -f .github/workflows/mlflow-deployment.yaml
+          kubectl apply -f .github/workflows/mlflow-service.yaml
 
       
