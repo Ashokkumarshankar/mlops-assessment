@@ -6,7 +6,7 @@ This repository contains instructions and resources to deploy an MLflow UI using
 
 1. [Docker](https://docs.docker.com/get-docker/)
 2. [Minikube](https://minikube.sigs.k8s.io/docs/start/)
-3. [kubectl](https://docs.docker.com/get-docker/)
+3. [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
 
 ## Steps to Run
  
