@@ -2,4 +2,4 @@ mlflow
 fastapi
 uvicorn
 transformers
-import torch
+torch
