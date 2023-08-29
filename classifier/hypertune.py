@@ -83,3 +83,7 @@ def trainer():
         mlflow.log_param(param_name, param_value)
 
     mlflow.log_metric("best_metric", best_metric)
+
+
+if __name__ == "main":
+    trainer()
