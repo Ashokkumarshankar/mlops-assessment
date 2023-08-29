@@ -4,7 +4,7 @@ import random
 
 import numpy as np
 import torch
-from models.config import mlflow
+from config import mlflow
 from typing import Any, Dict, List
 
 def seed_everything(seed=73):
