@@ -5,6 +5,14 @@ import numpy as np
 from scipy.special import softmax
 from starlette.templating import Jinja2Templates
 
+def preprocess(text):
+    new_text = []
+    for t in text.split(" "):
+        t = '@user' if t.startswith('@') and len(t) > 1 else t
+        t = 'http' if t.startswith('http') else t
+        new_text.append(t)
+    return " ".join(new_text)
+
 templates = Jinja2Templates(directory="templates")
 
 MODEL = "cardiffnlp/twitter-roberta-base-sentiment-latest"
@@ -21,16 +29,7 @@ app = FastAPI()
 async def predict(text: dict):
     text = text['text']
 
-    def preprocess(text):
-        new_text = []
-        for t in text.split(" "):
-            t = '@user' if t.startswith('@') and len(t) > 1 else t
-            t = 'http' if t.startswith('http') else t
-            new_text.append(t)
-        return " ".join(new_text)
-
     
-
     text = preprocess(text)
     encoded_input = tokenizer(text, return_tensors='pt')
     output = model(**encoded_input)
