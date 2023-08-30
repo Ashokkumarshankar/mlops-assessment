@@ -48,8 +48,37 @@ This command should run mlflow UI up and running at port 5001.
 
 4. **Predict and serve models**
 
+    ```
+    git clone repo
+    ```
+    ```
+    docker build -t bert-assess:latest .
+    ```
+    ```
+    docker tag bert-assess:latest <acr-registry>/bert-assess:latest
+          
+    ```
+    **Push the built image to container registry**
+    ```
+    docker push <acr-registry>/bert-assess:latest
+    ```
+    ```
+    kubectl apply -f /deploy/model-deployment.yaml
+    ```
 
+    ```
+    kubectl apply -f /deploy/model-service.yaml
+    ```
+    **To check available pods**
+    ```
+    kubectl get svc -A
+    ```
+    **forward the service to local env**
+    ```
+    kubectl port-forward model-api-service 8002:12345
+    ```
+    **Test model predictions**
+    ```
+    http://localhost:12345?text={"text":"inputs "}
+    ```
 
-
-
-Work in progess
