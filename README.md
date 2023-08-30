@@ -42,6 +42,7 @@ This command should run mlflow UI up and running at port 5001.
     ```
     kubectl apply -f mlflow-deployment.yaml
     ```
+    ```
     kubectl apply -f mlflow-service.yaml
     ```
 
